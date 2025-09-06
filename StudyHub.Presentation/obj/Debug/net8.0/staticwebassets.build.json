@@ -1,12 +1,11 @@
 {
   "Version": 1,
-  "Hash": "HxYdy03zB+1jmLkvLirXLFfrzZEzetfnqkhTEiS+nNY=",
+  "Hash": "ocoqqf8uauGoaKeBbtA4UidysxxzuKg0lIdXEDDHi5g=",
   "Source": "StudyHub.Presentation",
   "BasePath": "_content/StudyHub.Presentation",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "Assets": []
 }

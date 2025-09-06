@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/Users/darshanuttammistry/Developer/projects/StudyHub/StudyHub.Core/StudyHub.Core.csproj": {}
+    "/home/runner/work/StudyHub_Backend/StudyHub_Backend/StudyHub.Core/StudyHub.Core.csproj": {}
   },
   "projects": {
-    "/Users/darshanuttammistry/Developer/projects/StudyHub/StudyHub.Core/StudyHub.Core.csproj": {
+    "/home/runner/work/StudyHub_Backend/StudyHub_Backend/StudyHub.Core/StudyHub.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/darshanuttammistry/Developer/projects/StudyHub/StudyHub.Core/StudyHub.Core.csproj",
+        "projectUniqueName": "/home/runner/work/StudyHub_Backend/StudyHub_Backend/StudyHub.Core/StudyHub.Core.csproj",
         "projectName": "StudyHub.Core",
-        "projectPath": "/Users/darshanuttammistry/Developer/projects/StudyHub/StudyHub.Core/StudyHub.Core.csproj",
-        "packagesPath": "/Users/darshanuttammistry/.nuget/packages/",
-        "outputPath": "/Users/darshanuttammistry/Developer/projects/StudyHub/StudyHub.Core/obj/",
+        "projectPath": "/home/runner/work/StudyHub_Backend/StudyHub_Backend/StudyHub.Core/StudyHub.Core.csproj",
+        "packagesPath": "/home/runner/.nuget/packages/",
+        "outputPath": "/home/runner/work/StudyHub_Backend/StudyHub_Backend/StudyHub.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/darshanuttammistry/.nuget/NuGet/NuGet.Config"
+          "/home/runner/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/Users/darshanuttammistry/.nuget/NuGet": {},
-          "/Users/darshanuttammistry/.nuget/NuGet": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,13 +32,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -75,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/darshanuttammistry/.dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.119/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

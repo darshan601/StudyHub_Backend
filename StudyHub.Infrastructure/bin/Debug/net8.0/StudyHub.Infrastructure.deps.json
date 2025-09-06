@@ -611,10 +611,7 @@
           "Microsoft.IdentityModel.Tokens": "8.14.0"
         },
         "runtime": {
-          "StudyHub.Core.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "StudyHub.Core.dll": {}
         }
       }
     }
