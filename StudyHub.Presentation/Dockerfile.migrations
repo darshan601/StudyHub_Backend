@@ -1,0 +1,15 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS base
+WORKDIR /app
+
+# Copy project files
+COPY . .
+
+# Copy wait-for-it script
+COPY --chmod=755 wait-for-it.sh /app/wait-for-it.sh
+
+# Install EF tools
+RUN dotnet tool install --global dotnet-ef
+ENV PATH="$PATH:/root/.dotnet/tools"
+
+# Set working directory to the presentation project
+WORKDIR /app/StudyHub.Presentation

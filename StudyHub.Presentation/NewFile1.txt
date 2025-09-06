@@ -1,0 +1,34 @@
+for now:request-response (SignalR + EF Core)
+
+for future: 
+extend this with background worker service (using Redis Streams) for durable message persistence and analytics,
+
+------
+Layers -> 
+ 
+
+# Infrastructure
+cd src/Infrastructure
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+# Api
+cd ../Api
+dotnet add package Microsoft.AspNetCore.SignalR
+dotnet add package Microsoft.AspNetCore.SignalR.StackExchangeRedis
+dotnet add package Swashbuckle.AspNetCore
+
+inside presentation:
+dotnet add package Serilog.AspNetCore
+dotnet add package Serilog.Sinks.Console
+dotnet add package Serilog.Sinks.File
+dotnet add package Microsoft.Extensions.Diagnostics.HealthChecks
+dotnet add package AspNetCore.HealthChecks.NpgSql
+dotnet add package AspNetCore.HealthChecks.Redis
+dotnet add package AspNetCore.HealthChecks.UI.Client
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+dotnet add package Microsoft.IdentityModel.Tokens
+Microsoft.IdentityModel.JsonWebTokens
+
+dotnet ef migrations add AddRoomsandUsers --project ../StudyHub.Infrastructure --startup-project .

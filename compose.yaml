@@ -1,0 +1,69 @@
+﻿services:
+  
+  migrations:
+    build:
+      context: .
+      dockerfile: StudyHub.Presentation/Dockerfile.migrations
+    depends_on:
+      - postgres
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=StudyDb;Username=postgres;Password=secret
+    networks:
+      - study-net
+    command: ["sh", "-c", "/app/wait-for-it.sh postgres:5432 -- dotnet ef database update --project ../StudyHub.Infrastructure/StudyHub.Infrastructure.csproj --startup-project StudyHub.Presentation.csproj"]
+  api:
+    build:
+      context: .
+      dockerfile: StudyHub.Presentation/Dockerfile
+    ports:
+      - "5151:8080"
+    depends_on:
+      migrations:
+        condition: service_completed_successfully
+      redis:
+        condition: service_started
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=StudyDb;Username=postgres;Password=secret
+      - ConnectionStrings__Redis=redis:6379
+      - Jwt__Key=super_secret_very_long_key_here_12345
+      - Jwt__Issuer=StudyPlatform
+      - Jwt__Audience=StudyPlatformUsers
+      - Admin__Username=admin
+      - Admin__Password=admin123!
+      - AllowedOrigins__0=http://localhost:5173
+    networks:
+      - study-net
+    
+    
+  postgres:
+    image: postgres:latest
+    container_name: studydb
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: StudyDb
+    ports:
+     - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - study-net
+        
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - study-net
+        
+volumes:
+  postgres_data:
+    
+networks:
+  study-net:
+    driver: bridge
+    
