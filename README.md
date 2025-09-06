@@ -63,9 +63,9 @@ StudyHub.Presentation/   # API Layer
    cd StudyHub_Backend
    ```
 
-2. **Start all services**
+2. **Start all services using compose.yaml**
    ```bash
-   docker-compose up --build
+   docker compose up --build
    ```
 
 3. **Access the application**
@@ -77,8 +77,8 @@ StudyHub.Presentation/   # API Layer
 
 1. **Setup Database & Redis**
    ```bash
-   # Start PostgreSQL and Redis
-   docker-compose up postgres redis -d
+   # Start PostgreSQL and Redis using compose.yaml
+   docker compose up postgres redis -d
    ```
 
 2. **Configure Connection Strings**
@@ -484,32 +484,34 @@ start();
 
 ## 🐳 Docker Deployment
 
-The application includes a complete Docker setup with multi-stage builds and health checks.
+The application includes a complete Docker setup with multi-stage builds and health checks defined in `compose.yaml`. This Docker Compose file orchestrates all the necessary services for the application.
 
 ### Services Overview
+
+The `compose.yaml` file defines the following services:
 
 - **api** - Main .NET application (port 5151)
 - **postgres** - PostgreSQL database (port 5432)
 - **redis** - Redis cache/message broker (port 6379)
-- **migrations** - Database migration service (runs once)
+- **migrations** - Database migration service (runs once on startup)
 
 ### Docker Commands
 
 ```bash
-# Start all services
-docker-compose up --build
+# Start all services defined in compose.yaml
+docker compose up --build
 
 # Start in background
-docker-compose up -d --build
+docker compose up -d --build
 
 # View logs
-docker-compose logs -f api
+docker compose logs -f api
 
 # Stop all services
-docker-compose down
+docker compose down
 
 # Reset database (removes volumes)
-docker-compose down -v
+docker compose down -v
 ```
 
 ### Production Deployment
@@ -542,8 +544,8 @@ environment:
    git clone https://github.com/darshan601/StudyHub_Backend.git
    cd StudyHub_Backend
    
-   # Start dependencies
-   docker-compose up postgres redis -d
+   # Start dependencies using compose.yaml
+   docker compose up postgres redis -d
    
    # Restore packages
    dotnet restore
@@ -658,13 +660,13 @@ When the application starts, it automatically creates:
 1. **Database Connection Failed**
    ```
    Solution: Ensure PostgreSQL is running and connection string is correct
-   docker-compose up postgres -d
+   docker compose up postgres -d
    ```
 
 2. **Redis Connection Failed**
    ```
    Solution: Ensure Redis is running
-   docker-compose up redis -d
+   docker compose up redis -d
    ```
 
 3. **JWT Authentication Failed**
